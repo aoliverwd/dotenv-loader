@@ -1,0 +1,9 @@
+# PHPStan finds bugs in your code without writing tests: https://phpstan.org/
+# Run tests via the composer CLI: composer test
+parameters:
+    level: 8
+    paths:
+        - src
+    ignoreErrors:
+        # The below constants are defined when running the application from a web server
+        # - '#some issue#'

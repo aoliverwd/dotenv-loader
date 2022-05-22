@@ -1,0 +1,5 @@
+name: dotenv-loader
+
+services:
+  php:
+    type: php:7.4
