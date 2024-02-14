@@ -25,7 +25,7 @@ final class ResourceLoader
                 //read resource line by line
                 while (($buffer = fgets($handle, 4096)) !== false) {
                     // Check line is not empty or is not a comment
-                    if (strlen(trim($buffer)) > 0 || substr(trim($buffer), 0, 1) !== '#') {
+                    if (!empty($buffer) || substr(trim($buffer), 0, 1) !== '#') {
                         // Match key and variable
                         if (preg_match('/^(.*?)=(.*)/', trim($buffer), $matches)) {
                             if (count($matches) === 3) {
