@@ -66,13 +66,13 @@ final class ResourceLoader
     /**
      * Encrypt Environment Variables
      * @param  array<mixed>  $environment_variables
-     * @param  string $public_key_location
+     * @param  string $public_key_content
      * @return array<mixed>
      */
-    public static function encryptEnvironmentVariables(array $environment_variables, string $public_key_location): array
+    public static function encryptEnvironmentVariables(array $environment_variables, string $public_key_content): array
     {
-        return array_map(function ($variable_content) use ($public_key_location) {
-            openssl_public_encrypt($variable_content, $crypted, $public_key_location, OPENSSL_PKCS1_OAEP_PADDING);
+        return array_map(function ($variable_content) use ($public_key_content) {
+            openssl_public_encrypt($variable_content, $crypted, $public_key_content, OPENSSL_PKCS1_OAEP_PADDING);
             return base64_encode($crypted);
         }, $environment_variables);
     }
@@ -80,13 +80,13 @@ final class ResourceLoader
     /**
      * Decrypt EnvironmentVariables
      * @param  array<mixed>  $environment_variables
-     * @param  string $private_key_location
+     * @param  string $private_key_content
      * @return array<mixed>
      */
-    public static function decryptEnvironmentVariables(array $environment_variables, string $private_key_location): array
+    public static function decryptEnvironmentVariables(array $environment_variables, string $private_key_content): array
     {
-        return array_map(function ($variable_content) use ($private_key_location) {
-            openssl_private_decrypt(base64_decode($variable_content), $decrypted, $private_key_location, OPENSSL_PKCS1_OAEP_PADDING);
+        return array_map(function ($variable_content) use ($private_key_content) {
+            openssl_private_decrypt(base64_decode($variable_content), $decrypted, $private_key_content, OPENSSL_PKCS1_OAEP_PADDING);
             return $decrypted;
         }, $environment_variables);
     }
