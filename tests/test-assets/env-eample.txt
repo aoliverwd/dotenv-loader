@@ -1,0 +1,11 @@
+# Example .env file
+
+# Application settings
+APP_NAME=my_app
+ENVIRONMENT=development
+
+# Database connection details
+DB_HOST=localhost
+DB_USERNAME=username
+DB_PASSWORD=password
+DB_DATABASE=database_name

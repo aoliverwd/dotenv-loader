@@ -21,7 +21,7 @@
     },
     "prefer-stable": true,
     "require": {
-        "php": ">=7.4"
+        "php": ">=8.1"
     },
     "autoload": {
         "files": [
@@ -29,11 +29,18 @@
         ]
     },
     "require-dev": {
-        "phpstan/phpstan": "^1.6"
+        "phpstan/phpstan": "^1.6",
+        "pestphp/pest": "^1.23"
     },
     "scripts": {
         "test": [
-            "./vendor/bin/phpstan analyse -c phpstan.neon"
+            "./vendor/bin/phpstan analyse -c phpstan.neon",
+            "./vendor/bin/pest"
         ]
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     }
 }
