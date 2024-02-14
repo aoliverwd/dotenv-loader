@@ -42,7 +42,7 @@ encryptEnvironmentVariables(
 ): array
 ```
 
-The encryptEnvironmentVariables method encrypts the values of the key, value pair array using a provided public key.
+The ```encryptEnvironmentVariables``` method encrypts the values of the key, value pair array using a provided public key.
 ### decryptEnvironmentVariables
 
 ```php
@@ -52,4 +52,4 @@ decryptEnvironmentVariables(
 ): array
 ```
 
-The decryptEnvironmentVariables method decrypts the values of the key, value pair array using a provided private key.
+The ```decryptEnvironmentVariables``` method decrypts the values of the key, value pair array using a provided private key.
