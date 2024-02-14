@@ -5,7 +5,11 @@ Set PHP application environment variables via a ```.env``` file.
 ## Usage
 
 ```php
-AOWD\envLoader\load(__DIR__ . '/.env');
+// Using Wrapper
+\AOWD\envLoader\load(__DIR__ . '/.env');
+
+// Using Class
+\AOWD\envLoader\ResourceLoader::applyEnvironmentVariables(__DIR__ . '/.env');
 ```
 
 ### .env Example
