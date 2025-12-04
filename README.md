@@ -1,6 +1,9 @@
+![PHPUnit](https://github.com/aoliverwd/dotenv-loader/actions/workflows/ci.yml/badge.svg) [![Latest Stable Version](https://poser.pugx.org/alexoliverwd/dotenv-loader/v)](//packagist.org/packages/alexoliverwd/dotenv-loader) [![License](https://poser.pugx.org/alexoliverwd/dotenv-loader/license)](//packagist.org/packages/alexoliverwd/dotenv-loader)
+
 # Environment Variables Loader
 
 Load configuration variables into your PHP application's global namespace from an `.env` file for flexible management across different environments.
+
 ## Installation
 
 ```bash
@@ -24,6 +27,7 @@ loadResource(
 ```
 
 The `loadResource` method retrieves key-value pairs from a configuration file, like `/home/.env`, providing a structured and flexible way to manage application settings across various environments.
+
 ### applyEnvironmentVariables
 
 ```php
@@ -33,6 +37,7 @@ applyEnvironmentVariables(
 ```
 
 The `applyEnvironmentVariables` method imports key-value pairs from a configuration file, like `/home/.env`, directly into PHP's global namespace, making them accessible throughout your application using the built-in `$_ENV`[ superglobal variable](https://www.php.net/manual/en/reserved.variables.environment).
+
 ### encryptEnvironmentVariables
 
 ```php
@@ -42,7 +47,8 @@ encryptEnvironmentVariables(
 ): array
 ```
 
-The ```encryptEnvironmentVariables``` method encrypts the values of the key, value pair array using a provided public key.
+The `encryptEnvironmentVariables` method encrypts the values of the key, value pair array using a provided public key.
+
 ### decryptEnvironmentVariables
 
 ```php
@@ -52,4 +58,4 @@ decryptEnvironmentVariables(
 ): array
 ```
 
-The ```decryptEnvironmentVariables``` method decrypts the values of the key, value pair array using a provided private key.
+The `decryptEnvironmentVariables` method decrypts the values of the key, value pair array using a provided private key.
