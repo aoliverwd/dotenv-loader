@@ -29,7 +29,7 @@ final class ResourceLoader
                         // Match key and variable
                         if (preg_match('/^(.*?)=(.*)/', trim($buffer), $matches)) {
                             if (count($matches) === 3) {
-                                $return_array[$matches[1]] = $matches[2];
+                                $return_array[$matches[1]] = self::wrappedInQuotes($matches[2]);
                             }
                         }
                     }
@@ -46,10 +46,18 @@ final class ResourceLoader
         return [];
     }
 
+    private static function wrappedInQuotes(string $value): string
+    {
+        $start_end = substr($value, 0, 1) . substr($value, -1, 1);
+        if ($start_end === '""') {
+            return substr($value, 1, -1);
+        }
+
+        return $value;
+    }
+
     /**
      * Apply Environment Variables
-     * @param  string $resource_location
-     * @return void
      */
     public static function applyEnvironmentVariables(string $resource_location): void
     {
@@ -65,9 +73,8 @@ final class ResourceLoader
 
     /**
      * Encrypt Environment Variables
-     * @param  array<mixed>  $environment_variables
-     * @param  string $public_key_content
-     * @return array<mixed>
+     * @param  array<string, string>  $environment_variables
+     * @return array<string, string>
      */
     public static function encryptEnvironmentVariables(array $environment_variables, string $public_key_content): array
     {
@@ -79,9 +86,8 @@ final class ResourceLoader
 
     /**
      * Decrypt EnvironmentVariables
-     * @param  array<mixed>  $environment_variables
-     * @param  string $private_key_content
-     * @return array<mixed>
+     * @param  array<string, string>  $environment_variables
+     * @return array<string, string>
      */
     public static function decryptEnvironmentVariables(array $environment_variables, string $private_key_content): array
     {
